@@ -110,7 +110,7 @@ agent = Agent(
 # result
 response = Runner.run_sync(
     starting_agent = agent,
-    input = "what is devops", 
+    input = "what is ai agents", 
     run_config= config
 )
 
