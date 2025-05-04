@@ -140,7 +140,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.container():
-    user_input = st.text_input("🔍 What would you like help with today?", placeholder="E.g. How to deploy a React app to Vercel")
+    user_input = st.text_input("🔍 What would you like help with today?", placeholder="E.g. what is web development")
 
     col1, col2, col3 = st.columns([1, 5, 1])
     with col2:
