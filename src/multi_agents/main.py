@@ -2,7 +2,7 @@ from agents import Agent, Runner, RunConfig, AsyncOpenAI, OpenAIChatCompletionsM
 from dotenv import load_dotenv
 load_dotenv()
 import os
-
+import asyncio
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 MODEL = "gemini/gemini-1.5-flash"
@@ -107,13 +107,15 @@ agent = Agent(
 
 
 
-# result
-response = Runner.run_sync(
-    starting_agent = agent,
-    input = "what is ai agents", 
-    run_config= config
-)
+# # result
+async def run_agent():
+    response = await Runner.run(
+        starting_agent = agent,
+        input = "what is ai agents", 
+        run_config= config
+    )
+    result = response.final_output
+    print(result)
 
-result = response.final_output
-print(result)
-
+# Running the async function
+asyncio.run(run_agent())
